@@ -1,7 +1,11 @@
-#First Phaser game
+#My First Phaser Game
 
-Requires installation of [PHASER](https://phaser.io/)
+##Installations
+    * [PHASER](https://phaser.io/)
+    *`npm install http-server -g`
 
-To run the program, copy the path for **index.html** into your browser.
+##To run the program:
+    *From the terminal, go to the filepath and type `npx http-server`
+    *In the browser, open localhost:8080
 
-My first attempts at using Phaser. 
+
