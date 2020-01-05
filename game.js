@@ -2,7 +2,8 @@ const gameState = {}
 
 function preload() {
     this.load.image('friend', 'assets/frog.png');
-    this.load.image('floor', 'assets/floor.png')
+    this.load.image('floor', 'assets/floor.png');
+    this.load.image('star', 'assets/star.png')
     this.load.audio('croak', 'assets/frogsound.mp3');
   }
   
@@ -11,9 +12,17 @@ function create() {
   gameState.croak = this.sound.add('croak')
   gameState.cursors = this.input.keyboard.createCursorKeys();
   const floor = this.physics.add.staticGroup();
-  floor.create(1000, 1450, 'floor');
+  floor.create(225, 510, 'floor');
   gameState.friend.setCollideWorldBounds(true);
   this.physics.add.collider(gameState.friend, floor)
+
+  const star = this.physics.add.group();
+  function makeStar() {
+    let xCoord = Math.random() * 450;
+    star.create(xCoord, 10, 'star');
+  }
+  makeStar();
+
 }
   
 function update() {
@@ -38,8 +47,8 @@ function update() {
 
 const config = {
       type: Phaser.AUTO,
-      width: 350,
-      height: 350,
+      width: 450,
+      height: 500,
       backgroundColor: "#F7E60D",
       scene: {
       create,
@@ -49,7 +58,7 @@ const config = {
       physics: {
         default: 'arcade',
         arcade: {
-          gravity: { y: 1450 },
+          gravity: { y: -300 },
           debug: true
         }
       }
