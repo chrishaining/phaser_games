@@ -8,7 +8,7 @@ This is a very basic game with a sprite that the player can move left, right, up
 
 ## Installations
     * [PHASER](https://phaser.io/)
-    * `npm install http-server -g`
+    * `npm install http-server -g` 
 
 ## To run the program:
     * From the terminal, go to the filepath and type `npx http-server`
