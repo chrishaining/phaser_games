@@ -49,7 +49,7 @@ function update() {
     if (gameState.cursors.right.isDown) {
         gameState.frog.x += 1;
         gameState.croak.play();
-      }
+      } 
 }
 
 const config = {
