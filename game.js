@@ -8,7 +8,7 @@ function preload() {
   }
   
 function create() {
-  gameState.friend = this.physics.add.sprite(200, 200, 'friend')
+  gameState.friend = this.physics.add.sprite(200, 400, 'friend')
   gameState.croak = this.sound.add('croak')
   gameState.cursors = this.input.keyboard.createCursorKeys();
   const floor = this.physics.add.staticGroup();
@@ -22,6 +22,13 @@ function create() {
     star.create(xCoord, 10, 'star');
   }
   makeStar();
+
+  const makeStarLoop = this.time.addEvent({
+    callback: makeStar,
+    delay: 150,
+    callbackScope: this,
+    loop: true,
+  })
 
 }
   
@@ -58,7 +65,7 @@ const config = {
       physics: {
         default: 'arcade',
         arcade: {
-          gravity: { y: -300 },
+          gravity: { y: 300 },
           debug: true
         }
       }
