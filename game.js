@@ -1,4 +1,4 @@
-const gameState = {}
+const gameState = {score: 0}
 
 function preload() {
     this.load.image('frog', 'assets/frog.png');
@@ -16,6 +16,8 @@ function create() {
   gameState.frog.setCollideWorldBounds(true);
   this.physics.add.collider(gameState.frog, floor)
 
+  gameState.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '15px', fill: '#000000' })
+
   const stars = this.physics.add.group().setScale(.5);;
   function makeStar() {
     let xCoord = Math.random() * 450;
@@ -32,6 +34,8 @@ function create() {
 
   this.physics.add.collider(stars, floor, function(star) {
     star.destroy();
+    gameState.score += 10;
+    gameState.scoreText.setText(`Score: ${gameState.score}`)
   });
 
 }
