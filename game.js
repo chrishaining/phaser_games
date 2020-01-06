@@ -41,6 +41,11 @@ function create() {
     bugGenLoop.destroy();
     this.physics.pause();
     this.add.text(200, 200, 'Game Over', {fontSize: '30px', fill: '#000000'})
+
+    this.input.on('pointerup', () => {
+      gameState.score = 0;
+      this.scene.restart();
+    })
   })
 }
   
