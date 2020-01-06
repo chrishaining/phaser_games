@@ -16,19 +16,23 @@ function create() {
   gameState.frog.setCollideWorldBounds(true);
   this.physics.add.collider(gameState.frog, floor)
 
-  const star = this.physics.add.group();
+  const stars = this.physics.add.group().setScale(.5);;
   function makeStar() {
     let xCoord = Math.random() * 450;
-    star.create(xCoord, 10, 'star');
+    stars.create(xCoord, 10, 'star');
   }
   // makeStar();
 
   const makeStarLoop = this.time.addEvent({
     callback: makeStar,
-    delay: 150,
+    delay: 5000,
     callbackScope: this,
     loop: true,
   })
+
+  this.physics.add.collider(stars, floor, function(star) {
+    star.destroy();
+  });
 
 }
   
@@ -56,7 +60,7 @@ const config = {
       type: Phaser.AUTO,
       width: 450,
       height: 500,
-      backgroundColor: "#F7E60D",
+      backgroundColor: "#FDFEFE",
       scene: {
       create,
       preload,
