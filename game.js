@@ -16,14 +16,13 @@ function create() {
   gameState.frog.setCollideWorldBounds(true);
   this.physics.add.collider(gameState.frog, floor)
 
-  gameState.scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '15px', fill: '#000000' })
+  gameState.scoreText = this.add.text(225, 425, 'Score: 0', { fontSize: '15px', fill: '#000000' })
 
   const stars = this.physics.add.group().setScale(.5);;
   function makeStar() {
     let xCoord = Math.random() * 450;
     stars.create(xCoord, 10, 'star');
   }
-  // makeStar();
 
   const makeStarLoop = this.time.addEvent({
     callback: makeStar,
@@ -41,7 +40,7 @@ function create() {
   this.physics.add.collider(gameState.player, bugs, () => {
     bugGenLoop.destroy();
     this.physics.pause();
-    this.add.text(200, 200, 'Game Over', {fontSize: '15px', fill: '#000000'})
+    this.add.text(200, 200, 'Game Over', {fontSize: '30px', fill: '#000000'})
   })
 }
   
@@ -78,7 +77,7 @@ const config = {
       physics: {
         default: 'arcade',
         arcade: {
-          gravity: { y: 300 },
+          gravity: { y: 300 }, 
           debug: true
         }
       }
