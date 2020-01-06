@@ -16,7 +16,7 @@ function create() {
   gameState.frog.setCollideWorldBounds(true);
   this.physics.add.collider(gameState.frog, floor)
 
-  gameState.scoreText = this.add.text(225, 425, 'Score: 0', { fontSize: '15px', fill: '#000000' })
+  gameState.scoreText = this.add.text(195, 485, 'Score: 0', { fontSize: '15px', fill: '#000000' })
 
   const stars = this.physics.add.group().setScale(.5);;
   function makeStar() {
