@@ -30,7 +30,7 @@ function create() {
     delay: 5000,
     callbackScope: this,
     loop: true,
-  })
+  });
 
   this.physics.add.collider(stars, floor, function(star) {
     star.destroy();
@@ -38,6 +38,11 @@ function create() {
     gameState.scoreText.setText(`Score: ${gameState.score}`)
   });
 
+  this.physics.add.collider(gameState.player, bugs, () => {
+    bugGenLoop.destroy();
+    this.physics.pause();
+    this.add.text(200, 200, 'Game Over', {fontSize: '15px', fill: '#000000'})
+  })
 }
   
 function update() {
